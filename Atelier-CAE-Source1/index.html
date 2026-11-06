@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132d29">
+  <meta name="description" content="Saisir, calculer et archiver vos dossiers de comptabilité analytique d’exploitation.">
+  <title>Atelier CAE · Saisie guidée</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#saisie" aria-label="Atelier CAE, accueil">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#c7f292"/><path d="M10 26V15m8 11V10m8 16V18" stroke="#132d29" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>Atelier CAE<small>COMPTABILITÉ ANALYTIQUE</small></span>
+    </a>
+    <div class="nav-label">ESPACE DE TRAVAIL</div>
+    <nav aria-label="Navigation principale">
+      <a href="#saisie" data-page="saisie"><span>01</span> Saisie du dossier</a>
+      <a href="#resultats" data-page="resultats"><span>02</span> Résultats</a>
+      <a href="#archives" data-page="archives"><span>03</span> Archives</a>
+    </nav>
+    <div class="sidebar-footer"><i></i><div>Espace personnel<small>Données sur ce navigateur</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><span><b>CAE</b><span class="slash">/</span><span id="breadcrumb">Saisie du dossier</span></span><span class="currency">MAD · DH</span></header>
+    <div class="workspace">
+      <div id="notice" role="status" aria-live="polite" hidden></div>
+      <section id="saisie" class="page" aria-labelledby="saisie-title">
+        <div class="hero">
+          <div><p class="eyebrow">01 / DOSSIER DE CALCUL</p><h1 id="saisie-title">Saisie guidée</h1><p>Remplissez une étape à la fois. Vous pouvez revenir en arrière ou lancer le calcul à tout moment.</p></div>
+          <div class="actions"><button type="button" id="demo" class="secondary">Charger un exemple</button><button type="button" id="new" class="secondary">Nouveau dossier</button></div>
+        </div>
+        <form id="form" novalidate>
+          <nav id="guided-nav" class="guided-nav" aria-label="Étapes de saisie"></nav><p id="guided-hint" aria-live="polite"></p><div id="form-content"></div>
+          <div id="errors" role="alert" tabindex="-1" hidden></div>
+          <div class="actionbar"><span>Les champs numériques vides valent zéro. Montants en DH.</span><div class="guided-buttons"><button id="guided-prev" type="button" class="secondary">← Précédent</button><button id="guided-next" type="button" class="primary">Suivant →</button><button id="guided-calculate" type="submit" class="secondary">Calculer les tableaux</button></div></div>
+        </form>
+      </section>
+      <section id="resultats" class="page" aria-labelledby="results-title" hidden>
+        <div class="hero"><div><p class="eyebrow">02 / TABLEAUX ANALYTIQUES</p><h1 id="results-title">Résultats</h1><p id="result-subtitle">Calculez un dossier pour afficher les tableaux.</p></div><div id="result-actions" class="actions"></div></div>
+        <div id="report"></div>
+      </section>
+      <section id="archives" class="page" aria-labelledby="archives-title" hidden>
+        <div class="hero"><div><p class="eyebrow">03 / HISTORIQUE</p><h1 id="archives-title">Archives des calculs</h1><p>Retrouvez les dossiers enregistrés et rechargez leurs données pour les modifier.</p></div><div class="actions"><button id="backup" type="button" class="secondary">Exporter les archives</button><button id="import" type="button" class="secondary">Importer un fichier JSON</button><input id="file" type="file" accept=".json,application/json" hidden></div></div>
+        <div id="archive-list"></div>
+      </section>
+      <footer>Atelier CAE <span>•</span> Coûts complets <span>•</span> Comptabilité analytique d’exploitation</footer>
+    </div>
+  </main>
+<script src="calculations.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
